@@ -113,4 +113,6 @@ class PageController extends Controller
         return redirect()->route('getLivres')->with('success', 'Le livre a été modifié');
 
     }
+
+    // commentaire ajouté
 }

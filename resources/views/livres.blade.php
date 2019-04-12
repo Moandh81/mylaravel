@@ -18,6 +18,7 @@
             <th scope="col">#</th>
             <th scope="col">Titre</th>
             <th scope="col">Auteur</th>
+            <th scope="col">Catégories</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -30,6 +31,7 @@
                 <th scope="row">{{$livre->id}}</th>
                 <td>{{$livre->titre}}</td>
                 <td>{{$livre->auteur}}</td>
+                <td>{{$livre->category->name}}</td>
                 <td>
                     <a class="btn btn-warning" href="{{route('afficherLivre', $livre->id)}}" role="button">Afficher</a>
                     <a class="btn btn-success" href="{{route('getModifierLivre', $livre->id)}}" role="button">Modifier</a>

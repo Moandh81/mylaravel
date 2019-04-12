@@ -17,6 +17,23 @@
                     <a class="dropdown-item" href="{{route('ajouterLivre')}}">Ajouter Un Livre</a>
                 </div>
             </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégories</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+
+                    @foreach($categories as $category)
+                        <a class="dropdown-item" href="{{route('getCategory', $category->id)}}">{{$category->name}}</a>
+
+
+                    @endforeach
+
+
+                </div>
+            </li>
+
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Chercher Un Livre" aria-label="Search">

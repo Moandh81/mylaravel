@@ -55,3 +55,5 @@ Route::get('supprimer_livre/{id}', 'PageController@getSupprimerLivre')->name('ge
 Route::get('modifier_livre/{id}', 'PageController@getModifierLivre')->name('getModifierLivre') ;
 
 Route::post('modifier_livre/{id}', 'PageController@postModifierLivre')->name('postModifierLivre');
+
+Route::get('afficher_par_category/{id}', 'PageController@getCategory')->name('getCategory');

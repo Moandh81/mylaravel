@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Livre;
 
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class PageController extends Controller
 
 
     public function getAjouterLivre() {
-        return view('ajouterlivre');
+        $categories = Category::all();
+        return view('ajouterlivre', compact('categories'));
     }
 
     public function getLivres() {
@@ -32,7 +34,8 @@ class PageController extends Controller
         $data=$request->validate([
             'titre' => 'required | min:5',
             'auteur' => 'required',
-            'description' =>''
+            'description' =>'',
+            'category_id' => "required"
         ]) ;
 
         //dd($request->all());
@@ -115,4 +118,12 @@ class PageController extends Controller
     }
 
     // commentaire ajouté
+
+
+    public function getCategory($id){
+        $category = Category::findOrFail($id);
+
+        $livres = Livre::where('category_id', $id)->paginate(4);
+        return view('livres', compact('livres'));
+    }
 }

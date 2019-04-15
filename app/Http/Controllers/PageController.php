@@ -126,4 +126,30 @@ class PageController extends Controller
         $livres = Livre::where('category_id', $id)->paginate(4);
         return view('livres', compact('livres'));
     }
+
+
+
+    public function search_book(Request $request) {
+
+
+
+     $data=$request->validate([
+         "search" => 'required'
+        ]) ;
+
+
+
+
+     //$livres=DB::table('livres')->where('titre', 'like', '%'. $request->search .'%')->paginate(4);
+
+     $livres = Livre::where('titre', 'like',  '%'.$data['search'].'%')->paginate(4);
+
+
+
+
+
+
+        return view('livres', compact('livres'));
+
+    }
 }

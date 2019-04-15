@@ -57,3 +57,6 @@ Route::get('modifier_livre/{id}', 'PageController@getModifierLivre')->name('getM
 Route::post('modifier_livre/{id}', 'PageController@postModifierLivre')->name('postModifierLivre');
 
 Route::get('afficher_par_category/{id}', 'PageController@getCategory')->name('getCategory');
+
+
+Route::post('search_book', 'PageController@search_book')->name('searchBook');

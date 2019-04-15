@@ -35,8 +35,9 @@
 
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Chercher Un Livre" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('searchBook')}}">
+            @csrf
+            <input class="form-control mr-sm-2" type="text" placeholder="Chercher Un Livre" aria-label="Search" name="search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
         </form>
     </div>

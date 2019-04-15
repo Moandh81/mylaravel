@@ -31,7 +31,7 @@
                 <th scope="row">{{$livre->id}}</th>
                 <td>{{$livre->titre}}</td>
                 <td>{{$livre->auteur}}</td>
-                <td>{{$livre->category->name}}</td>
+                 <td>{{$livre->category->name}}</td>
                 <td>
                     <a class="btn btn-warning" href="{{route('afficherLivre', $livre->id)}}" role="button">Afficher</a>
                     <a class="btn btn-success" href="{{route('getModifierLivre', $livre->id)}}" role="button">Modifier</a>

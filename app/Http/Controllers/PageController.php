@@ -6,12 +6,19 @@ use App\Category;
 use App\Livre;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
 
+
+
     public function index() {
+
+        $user = Auth::user();
+       // dd($user);
+
         return view('index');
     }
 

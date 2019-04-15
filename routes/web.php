@@ -18,45 +18,52 @@
 //})->name('welcome');
 
 
+//Route::middleware(['auth'])->group(function () {
 
 
-
-Route::get('/', 'ContactController@index')->name('home') ;
-
-
-Route::get('/contact', 'ContactController@getContact')->name('getContact') ;
-
-Route::post('/contact', 'ContactController@postContact')->name('postContact') ;
+    Route::get('/', 'ContactController@index')->name('home');
 
 
-Route::get('/master', function() {
+    Route::get('/contact', 'ContactController@getContact')->name('getContact');
 
-    return view('master');
-});
-
-
-Route::get('/index', 'PageController@index')->name('index');
+    Route::post('/contact', 'ContactController@postContact')->name('postContact');
 
 
-Route::get('/ajouter_livre', 'PageController@getAjouterLivre')->name('ajouterLivre');
+    Route::get('/master', function () {
+
+        return view('master');
+    });
 
 
-Route::get('/livres', 'PageController@getLivres')->name('getLivres') ;
-
-Route::post('/livres', 'PageController@postLivres')->name('postLivres');
+    Route::get('/index', 'PageController@index')->name('index');
 
 
-Route::get('afficher_livre/{id}', 'PageController@getAfficherLivre')->where('id', '[0-9]+')->name('afficherLivre');
+    Route::get('/ajouter_livre', 'PageController@getAjouterLivre')->middleware('auth')->name('ajouterLivre');
 
 
-Route::get('supprimer_livre/{id}', 'PageController@getSupprimerLivre')->name('getSupprimerLivre');
+    Route::get('/livres', 'PageController@getLivres')->name('getLivres');
+
+    Route::post('/livres', 'PageController@postLivres')->name('postLivres');
 
 
-Route::get('modifier_livre/{id}', 'PageController@getModifierLivre')->name('getModifierLivre') ;
-
-Route::post('modifier_livre/{id}', 'PageController@postModifierLivre')->name('postModifierLivre');
-
-Route::get('afficher_par_category/{id}', 'PageController@getCategory')->name('getCategory');
+    Route::get('afficher_livre/{id}', 'PageController@getAfficherLivre')->where('id', '[0-9]+')->name('afficherLivre');
 
 
-Route::post('search_book', 'PageController@search_book')->name('searchBook');
+    Route::get('supprimer_livre/{id}', 'PageController@getSupprimerLivre')->name('getSupprimerLivre');
+
+
+    Route::get('modifier_livre/{id}', 'PageController@getModifierLivre')->name('getModifierLivre');
+
+    Route::post('modifier_livre/{id}', 'PageController@postModifierLivre')->name('postModifierLivre');
+
+    Route::get('afficher_par_category/{id}', 'PageController@getCategory')->name('getCategory');
+
+
+    Route::post('search_book', 'PageController@search_book')->name('searchBook');
+
+
+//});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -26,6 +26,8 @@
                     <span class="sr-only">(current)</span></a>
             </li>
 
+            <h1 class="light">{{App::getLocale()}}</h1>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -64,6 +66,19 @@
             </li>
 
         </ul>
+
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="{{App::getLocale()}}">English</a>
+                <a class="dropdown-item" href="{{App::getLocale()}}">French</a>
+
+            </div>
+        </li>
+
+
 
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -105,6 +120,8 @@
                 @endguest
             </ul>
         </div>
+
+
         <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('searchBook')}}">
             @csrf
             <input class="form-control mr-sm-2" type="text" placeholder="Chercher Un Livre" aria-label="Search" name="search">

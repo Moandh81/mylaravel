@@ -7,6 +7,11 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
+                <h1 class="text-center mt-3">{{__('messages.welcome', ['name'=> 'anis'])}}</h1>
+                <h1 class="text-center mt-3">@lang('messages.welcome' , ['name'=> 'anis'])</h1>
+                <h1 class="text-center mt-3">{{trans('messages.welcome' , ['name'=> 'anis'])}}</h1>
+
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

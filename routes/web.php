@@ -67,3 +67,7 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/mail', 'MailController@getEmail')->name('getEmail');
+Route::post('/mail', 'MailController@postEmail')->name('postEmail');
